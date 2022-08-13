@@ -26,20 +26,14 @@ CURRENCY_CHOICE = ((CURRENCY_USD, "USD"), (CURRENCY_KRW, "KRW"))
 class User(AbstractUser):
     """Custom User Model"""
 
-    avatar = models.ImageField(null=True, blank=True)
-    gender = models.CharField(
-        choices=GENDER_CHOICES, max_length=10, null=True, blank=True
-    )
-    bio = models.TextField(default="", blank=True)
+    avatar = models.ImageField(blank=True)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=10, blank=True)
+    bio = models.TextField(blank=True)
 
-    birthdate = models.DateField(null=True)
+    birthdate = models.DateField(blank=True, null=True)
 
-    language = models.CharField(
-        choices=LANG_CHOICE, max_length=2, null=True, blank=True
-    )
+    language = models.CharField(choices=LANG_CHOICE, max_length=2, blank=True)
 
-    currency = models.CharField(
-        choices=CURRENCY_CHOICE, max_length=3, null=True, blank=True
-    )
+    currency = models.CharField(choices=CURRENCY_CHOICE, max_length=3, blank=True)
 
     superhost = models.BooleanField(default=False)
